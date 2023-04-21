@@ -13,21 +13,19 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 public class AppTest{
-    WebDriver driver;
+    ChromeDriver driver;
+
     @BeforeClass
-    @Parameters({"browser","url"})
-    void setUpDriver(String browser, String link) throws InterruptedException {
-        if (browser.equalsIgnoreCase("chrome")) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-        } else if (browser.equalsIgnoreCase("firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
-        }
-        driver.get(link);
+    @Parameters({"browser", "url"})
+    void setUpDriver() throws InterruptedException {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.get("http://webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html");
         driver.manage().window().maximize();
-        Thread.sleep(10000);
+        Thread.sleep(15000);
+
     }
+
     @Test
     void dropdown1() {
         WebElement DropDown = driver.findElement(By.id("dropdowm-menu-1"));
@@ -59,4 +57,9 @@ public class AppTest{
     void radioButton() {
         driver.findElement(By.xpath("  //*[@id=\"radio-buttons\"]/input[3]")).click();
 }
+    @AfterClass
+    void closeDriver(){
+
+        driver.close();
+    }
 }

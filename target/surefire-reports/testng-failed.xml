@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [Surefire suite]" verbose="0">
+  <test thread-count="1" name="Surefire test(failed)" verbose="0">
+    <classes>
+      <class name="org.example.AppTest">
+        <methods>
+          <include name="radioButton"/>
+          <include name="dropdown2"/>
+          <include name="setUpDriver"/>
+          <include name="dropdown3"/>
+          <include name="dropdown1"/>
+          <include name="checkbox1"/>
+          <include name="checkbox2"/>
+        </methods>
+      </class> <!-- org.example.AppTest -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->
